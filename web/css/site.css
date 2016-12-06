@@ -1,0 +1,116 @@
+.custom-file-input {
+    display: inline-block;
+    position: relative;
+    color: #533e00;
+}
+.custom-file-input input {
+    visibility: hidden;
+    width: 150px;
+    margin: 6px;
+}
+.custom-file-input:before {
+   /* content: 'Choose File';*/
+    display: block;
+    /*background: -webkit-linear-gradient( -180deg, #ffdc73, #febf01);
+    background: -o-linear-gradient( -180deg, #ffdc73, #febf01);
+    background: -moz-linear-gradient( -180deg, #ffdc73, #febf01);
+    background: linear-gradient( -180deg, #ffdc73, #febf01);*/
+    border: 3px solid #337ab7;
+    border-radius: 2px;
+    padding: 5px 0px;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    text-shadow: 1px 1px rgba(255,255,255,0.7);
+    font-weight: bold;
+    text-align: center;
+    font-size: 10pt;
+    position: absolute;
+    left: 0;
+    right: 0;
+
+}
+.custom-file-input:hover:before {
+    border-color: black;
+}
+.custom-file-input:active:before {
+    background: #337ab7;
+}
+.file-blue:before {
+    content: 'Muat Naik Gambar';
+    background-color: #337ab7;
+    /*background: -webkit-linear-gradient( -180deg, #99dff5, #02b0e6);
+    background: -o-linear-gradient( -180deg, #99dff5, #02b0e6);
+    background: -moz-linear-gradient( -180deg, #99dff5, #02b0e6);
+    background: linear-gradient( -180deg, #99dff5, #02b0e6);*/
+    border-color: #337ab7;
+    color: #FFF;
+    text-shadow: 1px 1px rgba(000,000,000,0.5);
+}
+.file-blue:hover:before {
+    border-color: #2e6da4;
+    background-color: #335CD6;
+}
+.file-blue:active:before {
+    background: #337ab7;
+    background-color: #335CD6;
+}
+
+.change-file-input {
+    display: inline-block;
+    position: relative;
+    color: #533e00;
+}
+.change-file-input input {
+    visibility: hidden;
+    width: 100px
+}
+.change-file-input:before {
+   /* content: 'Choose File';*/
+    display: block;
+    /*background: -webkit-linear-gradient( -180deg, #ffdc73, #febf01);
+    background: -o-linear-gradient( -180deg, #ffdc73, #febf01);
+    background: -moz-linear-gradient( -180deg, #ffdc73, #febf01);
+    background: linear-gradient( -180deg, #ffdc73, #febf01);*/
+    border: 3px solid #337ab7;
+    border-radius: 2px;
+    padding: 5px 0px;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    text-shadow: 1px 1px rgba(255,255,255,0.7);
+    font-weight: bold;
+    text-align: center;
+    font-size: 10pt;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.change-file-input:hover:before {
+    border-color: black;
+}
+.change-file-input:active:before {
+    background: #337ab7;
+}
+.change-blue:before {
+    content: 'Tukar Gambar';
+    background-color: #337ab7;
+    /*background: -webkit-linear-gradient( -180deg, #99dff5, #02b0e6);
+    background: -o-linear-gradient( -180deg, #99dff5, #02b0e6);
+    background: -moz-linear-gradient( -180deg, #99dff5, #02b0e6);
+    background: linear-gradient( -180deg, #99dff5, #02b0e6);*/
+    border-color: #337ab7;
+    color: #FFF;
+    text-shadow: 1px 1px rgba(000,000,000,0.5);
+}
+.change-blue:hover:before {
+    border-color: #2e6da4;
+    background-color: #335CD6;
+}
+.change-blue:active:before {
+    background: #337ab7;
+    background-color: #335CD6;
+}
+.test{
+    background-color: black;
+}
