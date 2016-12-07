@@ -4,6 +4,7 @@ use app\models\YuranDaftar;
 use app\components\CustomPagination;
 
 $this->title = 'Yuran Pendaftaran';
+$this->params['breadcrumbs'][] = ['label' => 'Senarai Tahfiz', 'url' => ['pilihan']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <!-- BEGIN PAGE TITLE-->
@@ -15,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			<div class="portlet-title">
 				<div class="caption font-green-haze">
 	                 <i class="icon-credit-card font-green-haze"></i>
-	                 <span class="caption-subject font-green-haze bold uppercase"> Yuran Pendaftaran 
+	                 <span class="caption-subject font-green-haze bold uppercase"> Yuran Pendaftaran <?= $model2->pusat_pengajian ?>
                     </span>
 	            </div>
 			</div>

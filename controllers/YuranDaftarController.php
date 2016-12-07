@@ -6,6 +6,7 @@ use Yii;
 use app\models\YuranDaftar;
 use app\models\YuranDaftarSearch;
 use app\models\LookupYuran;
+use app\models\LookupPusatPengajian;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -115,12 +116,35 @@ class YuranDaftarController extends Controller
         }
     }
 
-    public function actionYurandaftar()
+    public function actionPilihan()
     {
+        // $model = LookupPusatPengajian::find()
+        //         ->all();
+        $connection = \Yii::$app->db;
+        $sql = $connection->createCommand('SELECT p.pusat_pengajian,COUNT(m.id) AS total,p.id
+            from maklumat_pelajar_penjaga m
+            left join lookup_pusat_pengajian p on p.id = m.pusat_pengajian_id
+            GROUP by p.id
+            ORDER by total asc');
+
+        $model = $sql->queryAll();
+
+        return $this->render('pilihan',[
+            'model'=>$model,
+        ]);
+    }
+
+    public function actionYurandaftar($tahun,$umur,$id_pengajian)
+    {   
+        $model2 = LookupPusatPengajian::find()
+                ->where(['id'=>$id_pengajian])
+                ->one();
+
         $query = new Query;
         $query->select(['id','nama_pelajar','no_mykid','YEAR(CURDATE()) - YEAR(STR_TO_DATE(tarikh_lahir, "%d/%m/%Y")) AS umur'])  
               ->from('maklumat_pelajar_penjaga')
-              ->where(['YEAR(CURDATE()) - YEAR(STR_TO_DATE(tarikh_lahir, "%d/%m/%Y"))'=>7]);
+              ->where(['YEAR(CURDATE()) - YEAR(STR_TO_DATE(tarikh_lahir, "%d/%m/%Y"))'=>$umur])
+              ->andWhere(['pusat_pengajian_id'=>$id_pengajian]);
       
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $query->count()]);
@@ -131,6 +155,7 @@ class YuranDaftarController extends Controller
         return $this->render('yurandaftar', [
              'models' => $models,
              'pages' => $pages,
+             'model2'=>$model2,
         ]);
         
     }

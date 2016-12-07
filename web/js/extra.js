@@ -88,6 +88,21 @@ $(function(){
         $('#sum').val(maths);
     }
 
+    $('.open-modal').click(function () {
+         var idtahfiz = $(this).data('id');
+         var name = $(this).data('name');
+         console.log(name);
+         $(".modal-body #tahfizId").val( idtahfiz );
+         $("h4#tahfizname").text( name );
+    });
+
+    // $('.lookupCreate').click(function(){
+    //     $('#modal').modal('show')
+    //     .find('#modalContent')
+    //     .load($(this).attr('value'));
+
+    // });
+
     
 
 })

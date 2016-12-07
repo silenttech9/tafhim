@@ -1,3 +1,9 @@
+Update 08/12/2016
+=================
+- Add list of pusat pengajian before proceed to the yuran pendaftaran form.
+- Add form inside modal dialog.
+- Add some function inside extra.js
+
 Update 07/12/2016
 =================
 - Filter umur and tarikh_masuk for yuran daftar
