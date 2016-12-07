@@ -6,7 +6,7 @@ Tafhim System
 
 ## Latest Release
 
-> NOTE: The latest version already released. Refer the [CHANGE LOG](https://github.com/silenttech9/tafhim_latest/blob/master/CHANGELOG.md) for details.
+> NOTE: The latest version already released. Refer the [CHANGE LOG](https://github.com/silenttech9/tafhim/blob/master/CHANGELOG.md) for details.
 
 3rd Party Plugin
 ========================
