@@ -2,7 +2,7 @@ Update 07/12/2016
 =================
 - Filter umur and tarikh_masuk for yuran daftar
 - Add another table for yuran . Lookup_yuran
-- datepicker cannot add into github
+- datepicker cannot add into github.
 
 Update 04/12/2016
 =================
