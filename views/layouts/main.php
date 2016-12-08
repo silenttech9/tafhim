@@ -159,7 +159,7 @@ AppAsset::register($this);
                                             'options'=>['class'=>'nav-item'],
                                             'template' => '<a href="javascript:;" class="nav-link nav-toggle">Kewangan<span class="arrow"></span></a>',
                                             'items' => [
-                                                ['label' => 'Yuran Pendaftaran', 'url' => ['/yuran-daftar/yurandaftar']],
+                                                ['label' => 'Yuran Pendaftaran', 'url' => ['/yuran-daftar/pilihan']],
                                                 ['label' => 'Yuran Bulanan', 'url' => ['/#']],
                                                 ['label' => 'Rekod Yuran Pelajar', 'url' => ['/#']],
                                                 // ['label' => 'Yuran Pendaftaran', 'url' => ['/maklumat-pelajar-penjaga/yuran']],

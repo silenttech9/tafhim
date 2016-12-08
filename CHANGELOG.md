@@ -1,3 +1,8 @@
+Update 09/12/2016
+=================
+- Add growl notification at yuran daftar function
+- 
+
 Update 08/12/2016
 =================
 - Add list of pusat pengajian before proceed to the yuran pendaftaran form.

@@ -14,6 +14,7 @@ use app\models\MaklumatPelajarPenjaga;
 use yii\data\Pagination;
 use yii\data\ActiveDataProvider;
 use yii\db\Query;
+use kartik\growl\Growl;
 /**
  * YuranDaftarController implements the CRUD actions for YuranDaftar model.
  */
@@ -171,8 +172,11 @@ class YuranDaftarController extends Controller
         foreach ($std as $key => $value) {
             $tahunmasuk = $value['diffstd'];
         }
-        // print($tahunmasuk);
-        // exit();
+        
+        $model3 = MaklumatPelajarPenjaga::find()
+                ->where(['id'=>$id])
+                ->one();
+
         if ($umur == 7) {
             $model = new YuranDaftar();
             //if tahunmasuk 0 = student baru
@@ -187,11 +191,17 @@ class YuranDaftarController extends Controller
             }
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                $nama = $model3->nama_pelajar;
+                $msg = 'Yuran Daftar '.$nama.' Berjaya Di Simpan.';
+                
+                $model->save();
+                $this->getAddsuccess($msg);
                 return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('create', [
                     'model' => $model,
                     'model2' => $model2,
+                    'model3'=>$model3,
                     'umur' => $umur,
                 ]);
             }
@@ -214,11 +224,17 @@ class YuranDaftarController extends Controller
             }
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                $nama = $model3->nama_pelajar;
+                $msg = 'Yuran Daftar '.$nama.' Berjaya Di Simpan.';
+                
+                $model->save();
+                $this->getAddsuccess($msg);
                 return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('create', [
                     'model' => $model,
                     'model2' => $model2,
+                    'model3'=>$model3,
                     'umur' => $umur,
                 ]);
             }
@@ -241,11 +257,17 @@ class YuranDaftarController extends Controller
             }
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                $nama = $model3->nama_pelajar;
+                $msg = 'Yuran Daftar '.$nama.' Berjaya Di Simpan.';
+                
+                $model->save();
+                $this->getAddsuccess($msg);
                 return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('create', [
                     'model' => $model,
                     'model2' => $model2,
+                    'model3'=>$model3,
                     'umur' => $umur,
                 ]);
             }
@@ -268,11 +290,17 @@ class YuranDaftarController extends Controller
             }
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                $nama = $model3->nama_pelajar;
+                $msg = 'Yuran Daftar '.$nama.' Berjaya Di Simpan.';
+                
+                $model->save();
+                $this->getAddsuccess($msg);
                 return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('create', [
                     'model' => $model,
                     'model2' => $model2,
+                    'model3'=>$model3,
                     'umur' => $umur,
                 ]);
             }
@@ -295,11 +323,17 @@ class YuranDaftarController extends Controller
             }
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                $nama = $model3->nama_pelajar;
+                $msg = 'Yuran Daftar '.$nama.' Berjaya Di Simpan.';
+                
+                $model->save();
+                $this->getAddsuccess($msg);
                 return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('create', [
                     'model' => $model,
                     'model2' => $model2,
+                    'model3'=>$model3,
                     'umur' => $umur,
                 ]);
             }
@@ -321,17 +355,43 @@ class YuranDaftarController extends Controller
                     ->all();
             }
 
-            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if ($model->load(Yii::$app->request->post()) ) {
+                $nama = $model3->nama_pelajar;
+                // $model->jenis_yuran = 'Yuran Daftar';
+                // $model->bulan = $bulan;
+                // $model->tahap_pelajar = 6;
+                // $model->tahun = $tahun;
+
+                $msg = 'Yuran Daftar '.$nama.' Berjaya Di Simpan.';
+
+                $model->save();
+                $this->getAddsuccess($msg);
                 return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('create', [
                     'model' => $model,
                     'model2' => $model2,
+                    'model3'=>$model3,
                     'umur' => $umur,
                 ]);
             }
         }
         
+    }
+
+    public function getAddsuccess($msg)
+    {
+        Yii::$app->getSession()->setFlash('success', [
+             'type' => Growl::TYPE_CUSTOM,
+             'duration' => 5000,
+             'icon' => 'glyphicon glyphicon-ok-sign',
+             'message' => $msg,
+             'title' => 'Status',
+             'positonY' => 'top',
+             'positonX' => 'right',
+             'options'=>['class'=>'note note-success'],
+             // 'progressBarOptions' =>['class'=>'progress-bar progress-bar-success'],
+         ]);
     }
 
 }
